@@ -50,6 +50,7 @@ def auto_delete_old_files():
 auto_delete_old_files()
 
 # --- FUNGSI UPLOAD AMAN KE GOOGLE DRIVE ---
+# --- FUNGSI UPLOAD AMAN KE GOOGLE DRIVE ---
 def upload_to_drive(uploaded_file):
     try:
         file_metadata = {
@@ -59,12 +60,16 @@ def upload_to_drive(uploaded_file):
         fh = io.BytesIO(uploaded_file.getvalue())
         media = MediaIoBaseUpload(fh, mimetype=uploaded_file.type or 'application/octet-stream', resumable=True)
         
+        # Tambahkan supportsAllDrives=True agar berkas tersimpan di folder tujuan menggunakan kuota pemilik folder
         uploaded_drive_file = drive_service.files().create(
-            body=file_metadata, media_body=media, fields='id'
+            body=file_metadata, 
+            media_body=media, 
+            fields='id',
+            supportsAllDrives=True
         ).execute()
         return uploaded_drive_file.get('id')
     except Exception as e:
-        st.error(f"Gagal mengunggah ke Drive. Pastikan folder Drive sudah dibagikan ke email Service Account sebagai Editor. Detail: {e}")
+        st.error(f"Gagal mengunggah ke Drive. Detail: {e}")
         return None
 
 # --- TAMPILAN UTAMA APLIKASI ---
