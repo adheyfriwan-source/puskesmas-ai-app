@@ -14,7 +14,7 @@ st.title("🏥 Asisten Pembuat Laporan Puskesmas berbasis AI")
 st.caption("Unggah berkas data Puskesmas (Excel/CSV) untuk meracik laporan otomatis dengan bantuan Gemini AI.")
 
 # --- KONFIGURASI API KEY (MENGGUNAKAN SECRETS ATAU FALLBACK KODE ANDA) ---
-API_KEY_DEFAULT = "AQ.Ab8RN6KIHLyg7eMp8pX-Qfy2q3_Etgpz9FpNISQsJH-_BEGIMQ"
+API_KEY_DEFAULT = "AIzaSy.Ab8RN6KIHLyg7eMp8pX-Qfy2q3_Etgpz9FpNISQsJH-_BEGIMQ"
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", API_KEY_DEFAULT)
 
 # Inisialisasi Pustaka AI
