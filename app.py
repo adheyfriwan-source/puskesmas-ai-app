@@ -16,7 +16,7 @@ if not GEMINI_API_KEY:
 
 # Inisialisasi Gemini
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash-latest')
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 # --- TAMPILAN UTAMA APLIKASI ---
 uploaded_file = st.file_uploader("Unggah Berkas Data Puskesmas (Excel/CSV)", type=['xlsx', 'xls', 'csv'])
